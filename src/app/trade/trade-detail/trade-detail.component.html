@@ -1,0 +1,28 @@
+<mat-card *ngIf="trade">
+
+    <mat-card-header>
+        <mat-card-title>
+            {{ trade.title | uppercase }}
+        </mat-card-title>
+        <mat-card-subtitle fxLayout="row" fxLayoutAlign="space-between center">
+            <div>
+                Date : {{ trade.creationDate | date: 'dd/MM/yyyy HH:mm':'':'fr'}}
+            </div>
+            <div fxFlex="20px"></div>
+            <div>
+                par : <em>{{ trade.owner.firstName }} {{ trade.owner.lastName }}</em>
+            </div>
+        </mat-card-subtitle>
+    </mat-card-header>
+
+    <mat-card-content>
+        <div>{{ trade.description }}</div>
+
+        <div *ngIf="sources">
+            <img *ngFor="let src of sources" [src]="src" width="300" height="225">
+        </div>
+    </mat-card-content>
+    <mat-card-actions>
+        <button mat-raised-button color="primary" (click)="goBack()">{{ 'navigation.back' | translate }}</button>
+    </mat-card-actions>
+</mat-card>

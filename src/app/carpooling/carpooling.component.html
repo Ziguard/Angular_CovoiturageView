@@ -1,0 +1,29 @@
+<h2 class="title">
+    {{ 'carpooling.title' | translate }}
+</h2>
+
+<mat-card *ngFor="let carpooling of carpoolings">
+    <div fxLayoutAlign="row" [routerLink]="['carpooling/details', carpooling.id]">
+        <div fxFlex="15">
+            {{ carpooling.driver.firstName + ' ' + carpooling.driver.lastName }}
+        </div>
+
+        <div fxFlex="85">
+            <mat-card-header>
+                <mat-card-title>{{ carpooling.steps[0].estimatedDeparture | amLocale:'fr' | amCalendar }}
+                </mat-card-title>
+                <mat-card-subtitle>
+                    {{ carpooling.steps[0].location.city }} - {{ carpooling.steps[1].location.city }} en
+                    {{ carpooling.steps[carpooling.steps.length - 1].estimatedDeparture - carpooling.steps[0].estimatedDeparture | amDuration: 'milliseconds' }}
+                </mat-card-subtitle>
+            </mat-card-header>
+            <mat-card-content>
+                <div *ngFor="let step of carpooling.steps; let index = index; let last = last">
+                    {{ 'carpooling.stepNb' | translate: {number: index} }}
+                    {{ step.estimatedDeparture | amLocale:'fr' | amCalendar }} -
+                    {{ step.location.city }}
+                </div>
+            </mat-card-content>
+        </div>
+    </div>
+</mat-card>

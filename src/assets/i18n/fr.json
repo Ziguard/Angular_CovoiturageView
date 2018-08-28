@@ -1,0 +1,129 @@
+{
+    "app": {
+        "name": "Campus Service",
+        "confirmTitle": "Confirmation",
+        "deconnect": "Etes vous sûr de vouloir vous déconnecter ?",
+        "confirm": "Confirmer",
+        "cancel": "Annuler"
+    },
+    "header": {
+        "title": "Campus Services",
+        "welcome": "Bonjour, {{name}}",
+        "login": "Se connecter",
+        "register": "S'inscrire",
+        "logout": "Se déconnecter",
+        "tradeButton": "Échanges",
+        "carpoolButton": "Covoiturage",
+        "servicesButton": "Services",
+        "housingButton": "Hébergement",
+        "videoGamesButton": "Jeux Vidéo"
+    },
+    "footer": {
+        "appName": "Campus Services",
+        "copyright": "©2018.CampusServices Copyright",
+        "version": "Version 1.0"
+    },
+    "login": {
+        "title": "Identifiez-vous",
+        "login": "Login",
+        "password": "Mot de Passe",
+        "connect": "Se connecter",
+        "loginError": "Identifiants incorrects",
+        "emptyLogin": "Veuillez saisir un nom d'utilisateur",
+        "emptyPassword": "Veuillez saisir un mot de passe"
+    },
+    "home": {
+        "title": "Mon projet"
+    },
+    "carpooling": {
+        "title": "Liste des covoiturages",
+        "stepNb": "Étape {{number}}: "
+    },
+    "signup": {
+        "labels": {
+            "username": "Nom d'utilisateur",
+            "email": "Adresse email",
+            "lastname": "Nom",
+            "firstname": "Prénom",
+            "phone": "N° de téléphone",
+            "password": "Mot de passe",
+            "confirm": "Confirmation",
+            "submit": "S'inscrire",
+            "progress": "La demande d'inscription est en cours, veuillez patientez...",
+            "created": "Inscription réussie ! Vous allez être redirigé ..."
+        },
+        "errors": {
+            "invalid": "Saisie invalide.",
+            "email": "Adresse invalide.",
+            "required": "Champ requis.",
+            "pass-mismatch": "Les deux mots de passe ne correspondent pas."
+        },
+        "messages": {
+            "errors": {
+                "500": "Une erreur technique est survenue avec le serveur.",
+                "400": "Les données fournies ne sont pas correctes.",
+                "network": "Le service Web semble inaccessible. Vérifiez votre connexion :("
+            },
+            "welcome": "Bonjour {{firstName}}, et bienvenue sur Campus Services ! :)"
+        }
+    },
+    "announce": {
+        "carpooling": "Covoiturage",
+        "trade": {
+            "title": "Echange d'objets",
+            "types": {
+                "sale": "Vente",
+                "gift": "Don",
+                "trade": "Echange"
+            },
+            "type": "Type de transaction"
+        },
+        "service": "Echange de services",
+        "housing": {
+            "title": "Logement",
+            "types": {
+                "flatsharing": "Colocation",
+                "renting": "Location",
+                "sale": "Achat / Vente"
+            },
+            "type": "Type de bien",
+            "area": "Superficie (en m²)",
+            "rooms": "Nombre de pièces",
+            "rent": "Loyer (en €)",
+            "price": "Prix d'achat (en €)",
+            "equipments": "Equipements",
+            "infos": "Informations sur le bien"
+        },
+        "title": "Titre de l'annonce",
+        "description": "Texte descriptif de l'annonce",
+        "add": "Nouvelle annonce",
+        "create": "Enregistrer l'annonce",
+        "main": "Informations principales",
+        "uploading": "Envoi des photos en cours ...",
+        "sending": "Envoi de l'annonce",
+        "created": {
+            "message": "L'annonce a bien été ajoutée, elle sera mise en ligne dès sa validation par l'un de nos modérateurs. Soyez patient ! :)"
+        },
+        "back_to_home": "Retour à l'accueil"
+    },
+    "messages": {
+        "errors": {
+            "upload": "Oups ! Une erreur s'est produite lors de l'envoi des photos.",
+            "send": "Oups ! Il y a eu un problème lors de la création de l'annonce. =(",
+            "must-login": "Vous devez vous connecter pour accéder à cette fonctionnalité.",
+            "not-found": "Désolé, la ressource demandée n'a pas été trouvée."
+        },
+        "warning": {
+            "erasing-form": "Attention ! Changer de type d'annonce va ré-initialiser la saisie actuelle. Êtes-vous sûr de vouloir continuer ?"
+        },
+        "dialog": {
+            "title": "Confirmation",
+            "yes": "Oui",
+            "no": "Non"
+        }
+    },
+    "navigation": {
+        "back": "Retour",
+        "details": "Détails"
+    }
+}

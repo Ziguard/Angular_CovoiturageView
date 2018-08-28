@@ -1,0 +1,47 @@
+<mat-card *ngIf="house">
+
+    <mat-card-header>
+        <mat-card-header>
+            {{house.title | uppercase }}
+        </mat-card-header>
+        <mat-card-subtitle fxLayout="row" fxLayoutAlign="space-between center">
+            <div>
+                Date : {{house.creationDate | date: 'dd/MM/yyyy HH:mm':'':'fr'}}
+            </div>
+            <div fxFlex="20px"></div>
+            <div>
+                par : <em>{{house.owner.firstName}} {{house.owner.lastName}}</em>
+            </div>
+        </mat-card-subtitle>
+    </mat-card-header>
+
+    <mat-card-content>
+        <div>
+            {{'announce.housing.type' | translate}} : {{house.housingType}}
+        </div>
+        <div>
+            {{'announce.housing.price' | translate}} : {{house.rent}}
+        </div>
+        <div>
+            {{'announce.housing.area' | translate}} : {{house.area}}
+        </div>
+        <div>
+            {{'announce.housing.rooms' | translate}} : {{house.roomsCount}}
+        </div>
+        <div>
+            {{'announce.housing.equipement' | translate}} :
+        </div>
+        <div *ngFor="let value of house.equipments">
+            {{value}}
+        </div>
+
+        <div>{{house.description}} </div>
+
+        <div *ngIf="sources">
+            <img *ngFor="let src of sources" [src]="src" width="300" height="225">
+        </div>
+    </mat-card-content>
+    <mat-card-actions>
+        <button mat-raised-button color="primary" (click)="goBack()"> {{'navigation.back' | translate}}</button>
+    </mat-card-actions>
+</mat-card>

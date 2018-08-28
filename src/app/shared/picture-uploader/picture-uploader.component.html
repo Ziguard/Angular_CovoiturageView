@@ -1,0 +1,30 @@
+<mat-expansion-panel>
+    <mat-expansion-panel-header>
+        <mat-panel-title>
+            Photos de l'annonce
+        </mat-panel-title>
+        <mat-panel-description>
+            {{ getCount() }} photo{{ getCount() > 1 ? 's':'' }} importée{{ getCount() > 1 ? 's':'' }} sur 3 max.
+        </mat-panel-description>
+    </mat-expansion-panel-header>
+
+    <form>
+        <input #inputFile type="file"
+               (change)="handleFileInput($event.target.files)"/>
+        <div class="container">
+            <div *ngFor="let img of images; let i = index" class="thumb"
+                 (click)="handleFileSelection(i)" (drop)="handleDrop($event, i)"
+                 (dragstart)="absorbe($event)" (dragleave)="absorbe($event)">
+                <img [style.visibility]="img.isEmpty() ? 'hidden' : 'visible'"
+                     [width]="fixedWidth" [height]="fixedHeight"
+                     [src]="img.src"/>
+
+                <button *ngIf="!img.isEmpty()" class="mat-icon-button remove" (click)="removeImage(i)">
+                    <mat-icon color="warn">close</mat-icon>
+                </button>
+                <div *ngIf="img.isEmpty()" class="info-text">Drag image or click to upload a file</div>
+            </div>
+        </div>
+    </form>
+</mat-expansion-panel>
+

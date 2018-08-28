@@ -1,0 +1,44 @@
+input[type="file"] {
+    display: none;
+}
+
+/*
+ * FIXME: Ne surcharge pas le style du composant
+ */
+.mat-expansion-panel-content {
+    background: #f5f5f5;
+    padding-top: 15px;
+}
+
+
+.container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+
+
+
+    .thumb {
+        border: 1px dashed #666;
+        border-radius: 3px;
+        padding: 25px;
+        position: relative;
+        overflow: hidden;
+
+        img {
+            object-fit: cover;
+        }
+
+        .remove {
+            position: absolute;
+            top: 0; right: 0;
+        }
+    }
+}
+
+.info-text {
+    font-size: 8pt;
+    font-style: italic;
+}
+
+

@@ -1,0 +1,22 @@
+<mat-grid-list cols="3" rowHeight="4:3" gutterSize="4px" >
+    <mat-grid-tile *ngFor="let house of houses">
+        <mat-card>
+            <mat-card-header>
+                <mat-card-title>
+                    <strong>{{house.title}}</strong>
+                </mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                <div fxLayout="row">
+                    <small>par <em> {{house.owner.lastName}} {{house.owner.firstName}}</em></small>
+                    <div fxFlex="20px"></div>
+                    <small>{{house.creationDate | date:'dd/MM/yyyy HH:mm:ss':'':'fr'}}</small>
+                </div>
+                <p>{{house.description | slice:0:80}}</p>
+            </mat-card-content>
+            <mat-card-actions>
+                <button [routerLink]="house.id" mat-button color="primary">{{'navigation.details' | translate}}</button>
+            </mat-card-actions>
+        </mat-card>
+    </mat-grid-tile>
+</mat-grid-list>

@@ -1,0 +1,18 @@
+<form #subForm="ngForm">
+    <mat-expansion-panel>
+        <mat-expansion-panel-header>
+            <mat-panel-title>
+                {{ 'announce.trade.type' | translate }}
+            </mat-panel-title>
+            <mat-panel-description>
+                {{ exchangeTypes[model.exchangeType] | translate }}
+            </mat-panel-description>
+        </mat-expansion-panel-header>
+        <mat-radio-group [(ngModel)]="model.exchangeType" name="exchangeType">
+            <mat-radio-button class="radio-option"
+                              *ngFor="let type of exchangeTypes | keys"
+                              [value]="type">{{ exchangeTypes[type] | translate }}
+            </mat-radio-button>
+        </mat-radio-group>
+    </mat-expansion-panel>
+</form>

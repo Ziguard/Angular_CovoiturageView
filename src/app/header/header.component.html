@@ -1,0 +1,76 @@
+<header id="header-campus">
+
+    <mat-toolbar color="primary">
+        <mat-toolbar-row>
+            <div fxLayout="row" fxLayoutAlign="space-between none" fxFlex="100">
+                <div fxFlex="40"></div>
+                <div fxFlex="20" routerLink="" class="title campus-text-center">
+                    {{ 'header.title' | translate }}
+                </div>
+                <div fxFlex="40" fxLayoutAlign="end center">
+                    <div *ngIf="authenticated; else notAuthenticated">
+                        <span class="welcome">
+                            {{ 'header.welcome' | translate: { name: user.firstName } }}
+                        </span>
+
+                        <button class="logout" color="warn" mat-button (click)="logout()">
+                            {{ 'header.logout' | translate }}
+                        </button>
+                    </div>
+
+                    <ng-template #notAuthenticated>
+                        <button class="login" color="accent" mat-button routerLink="login">
+                            {{ 'header.login' | translate }}
+                        </button>
+
+                        <button class="login" color="accent" mat-button routerLink="signup">
+                            {{ 'header.register' | translate }}
+                        </button>
+                    </ng-template>
+
+                </div>
+            </div>
+        </mat-toolbar-row>
+
+        <mat-toolbar-row fxLayout="row" fxLayoutAlign="around center">
+            <div fxFlex="25%"></div>
+            <nav fxFlex="50%">
+
+                <button color="accent" mat-button routerLinkActive="active" routerLink="/trade">
+                    {{ 'header.tradeButton' | translate }}
+                </button>
+
+                <span>/</span>
+
+                <button color="accent" mat-button routerLinkActive="active" routerLink="/carpoolings">
+                    {{ 'header.carpoolButton' | translate }}
+                </button>
+
+                <span>/</span>
+
+                <button color="accent" mat-button routerLinkActive="active" routerLink="/services">
+                    {{ 'header.servicesButton' | translate }}
+                </button>
+
+                <span>/</span>
+
+                <button color="accent" mat-button routerLinkActive="active" routerLink="/housing">
+                    {{ 'header.housingButton' | translate }}
+                </button>
+
+                <span>/</span>
+
+                <button color="accent" mat-button routerLinkActive="active" routerLink="/videogames">
+                    {{ 'header.videoGamesButton' | translate }}
+                </button>
+            </nav>
+            <div fxFlex="25%" fxLayoutAlign="end center">
+                <button mat-button routerLink="/new-announce">
+                    <small>{{ 'announce.add' | translate }}</small>
+                </button>
+            </div>
+
+        </mat-toolbar-row>
+    </mat-toolbar>
+
+</header>

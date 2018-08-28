@@ -1,0 +1,63 @@
+<mat-tab-group dynamicHeight [selectedIndex]="state == 'SENT' ? 1 : 0">
+
+    <mat-tab label="main">
+        <form fxLayout="column" #form="ngForm">
+            <div fxLayout="row" fxLayoutAlign="space-around" class="types">
+                <div *ngFor="let type of types">
+                    <button [@announceTypeState]="(!selectedType || selectedType == type) ? 'none' : 'selected'"
+                            (click)="selectAnnounceType(type)" mat-button>
+                        <img [src]="path + type.image" width="40" height="40"/> {{ type.caption }}
+                    </button>
+                </div>
+            </div>
+
+            <mat-accordion class="sub-component">
+                <mat-expansion-panel expanded="true">
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>
+                            {{ 'announce.main' | translate }}
+                        </mat-panel-title>
+                    </mat-expansion-panel-header>
+
+                    <div fxLayout="row" fxLayoutAlign="space-around center">
+                        <mat-form-field fxFlex="33">
+                            <input matInput placeholder="{{ 'announce.title' | translate }}"
+                                   [(ngModel)]="model.title" name="title" required />
+                            <mat-error translate>signup.errors.required</mat-error>
+                        </mat-form-field>
+
+                        <mat-form-field fxFlex="66">
+                            <input matInput placeholder="{{ 'announce.description' | translate }}"
+                                   [(ngModel)]="model.description" name="description" required/>
+                            <mat-error translate>signup.errors.required</mat-error>
+                        </mat-form-field>
+                    </div>
+                </mat-expansion-panel>
+
+                <ng-template componentInject></ng-template>
+                <picture-uploader *ngIf="selectedType.upload" #uploader></picture-uploader>
+            </mat-accordion>
+
+            <mat-progress-bar mode="indeterminate"
+                              [style.visibility]="isPending() ? 'visible' : 'hidden'"></mat-progress-bar>
+
+            <button color="primary" mat-raised-button
+                    [disabled]="isPending() || !isValid()"
+                    (click)="send()">
+                {{ getButtonCaption() | translate }}
+            </button>
+        </form>
+    </mat-tab>
+
+    <mat-tab label="created" class="announce-created">
+        <div fxLayout="column" fxLayoutAlign="center center">
+            <div class="content">
+                {{ 'announce.created.message' | translate }}
+            </div>
+            <button mat-raised-button color="primary" (click)="goHome()">
+                {{ 'announce.back_to_home' | translate }}
+            </button>
+        </div>
+    </mat-tab>
+
+</mat-tab-group>

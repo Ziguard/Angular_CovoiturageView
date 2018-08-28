@@ -1,0 +1,50 @@
+<form #subForm="ngForm">
+    <mat-expansion-panel>
+        <mat-expansion-panel-header>
+            <mat-panel-title>
+                {{ 'announce.housing.type' | translate }}
+            </mat-panel-title>
+            <mat-panel-description>
+                {{ housingTypes[model.housingType] | translate }}
+            </mat-panel-description>
+        </mat-expansion-panel-header>
+        <mat-radio-group [(ngModel)]="model.housingType" name="housingType">
+            <mat-radio-button class="radio-option"
+                              *ngFor="let type of housingTypes | keys"
+                              [value]="type">{{ housingTypes[type] | translate }}
+            </mat-radio-button>
+        </mat-radio-group>
+    </mat-expansion-panel>
+
+    <mat-expansion-panel>
+        <mat-expansion-panel-header>
+            <mat-panel-title>
+                {{ 'announce.housing.infos' | translate }}
+            </mat-panel-title>
+            <mat-panel-description>
+                {{ getDescription() }}
+            </mat-panel-description>
+        </mat-expansion-panel-header>
+        <!-- Contenu -->
+        <div fxLayout="row" fxLayoutAlign="space-evenly start">
+            <mat-form-field>
+                <input matInput placeholder="{{ 'announce.housing.area' | translate }}"
+                       [(ngModel)]="model.area" type="number" name="area" min="0" required/>
+                <mat-error translate>signup.errors.required</mat-error>
+            </mat-form-field>
+
+            <mat-form-field>
+                <input matInput
+                       placeholder="{{ (model.housingType == 'SALE' ? 'announce.housing.price' : 'announce.housing.rent') | translate }}"
+                       [(ngModel)]="model.rent" type="number" name="rent" min="0"
+                />
+            </mat-form-field>
+
+            <mat-form-field>
+                <input matInput placeholder="{{ 'announce.housing.rooms' | translate }}"
+                       [(ngModel)]="model.roomsCount" type="number" name="rent" min="0"
+                />
+            </mat-form-field>
+        </div>
+    </mat-expansion-panel>
+</form>

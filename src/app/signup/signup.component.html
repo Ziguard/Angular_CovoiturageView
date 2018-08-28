@@ -1,0 +1,69 @@
+<form id="signup-form" #signupForm="ngForm" class="form-container" fxFlex="100">
+    <div fxLayout="column">
+        <div fxLayout="row" fxLayoutAlign="space-around center">
+            <mat-form-field class="" fxFlex="50">
+                <input matInput name="username" #username="ngModel"
+                       [(ngModel)]="user.username" [pattern]="validation.login.pattern"
+                       placeholder="{{ 'signup.labels.username' | translate }}" value="" required />
+                <mat-error translate>signup.errors.invalid</mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="" fxFlex="50">
+                <input matInput name="email" #email="ngModel"
+                       [(ngModel)]="user.email" [pattern]="validation.email.pattern"
+                       placeholder="{{ 'signup.labels.email' | translate }}" value="" required />
+                <mat-error translate>signup.errors.email</mat-error>
+            </mat-form-field>
+        </div>
+
+        <div fxLayout="row">
+            <mat-form-field class="">
+                <input matInput name="lastname" #lastname="ngModel"
+                       [(ngModel)]="user.lastName" [pattern]="validation.names.pattern"
+                       placeholder="{{ 'signup.labels.lastname' | translate }}" value="" required />
+                <mat-error translate>signup.errors.invalid</mat-error>
+            </mat-form-field>
+
+
+            <mat-form-field class="">
+                <input matInput name="firstname" #firstname="ngModel"
+                       [(ngModel)]="user.firstName" [pattern]="validation.names.pattern"
+                       placeholder="{{ 'signup.labels.firstname' | translate }}" value="" required />
+                <mat-error translate>signup.errors.invalid</mat-error>
+            </mat-form-field>
+        </div>
+
+        <div fxLayout="row" fxFlex="2">
+            <mat-form-field class="">
+                <input matInput name="phone" #phone="ngModel"
+                       [(ngModel)]="user.phone" [pattern]="validation.phone.pattern"
+                       placeholder="{{ 'signup.labels.phone' | translate }}" value="" required />
+                <mat-error translate>signup.errors.invalid</mat-error>
+            </mat-form-field>
+        </div>
+
+        <div fxLayout="row">
+            <mat-form-field class="">
+                <input matInput name="password" #password="ngModel" type="password"
+                       [(ngModel)]="user.password"
+                       placeholder="{{ 'signup.labels.password' | translate }}" value="" required />
+            </mat-form-field>
+
+            <mat-form-field class="">
+                <input matInput name="confirmPassword" #confirmPassword="ngModel" type="password"
+                       [(ngModel)]="user.confirm" [disabled]="password.invalid"
+                       placeholder="{{ 'signup.labels.confirm' | translate }}" value="" required />
+                <mat-error translate>signup.errors.pass-mismatch</mat-error>
+            </mat-form-field>
+        </div>
+    </div>
+
+    <div class="signup-footer">
+        <button mat-raised-button color="primary" [disabled]="signupForm.invalid || progress || created"
+                type="button" (click)="onSubmit()">{{ 'signup.labels.submit' | translate }}</button>
+
+        <mat-progress-spinner *ngIf="progress || created" mode="indeterminate" [diameter]="25"></mat-progress-spinner>
+        <small *ngIf="progress">{{ 'signup.labels.progress' | translate }}</small>
+        <small *ngIf="created">{{ 'signup.labels.created' | translate }}</small>
+    </div>
+</form>

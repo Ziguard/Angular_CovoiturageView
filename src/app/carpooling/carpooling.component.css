@@ -1,0 +1,13 @@
+.title {
+    text-align: center;
+}
+
+mat-card {
+    margin-top: 15px;
+    cursor: pointer;
+}
+
+mat-card-title {
+    font-size: 30px;
+    font-weight: bold;
+}

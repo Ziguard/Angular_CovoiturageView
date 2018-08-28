@@ -1,0 +1,23 @@
+.popup {
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: center;
+
+    font-size: 10pt;
+
+    img {
+        width: 24px;
+        height: 24px;
+        margin-right: 5px;
+    }
+
+    .filler {
+        flex: 1;
+    }
+
+    .warning { color: #FF5722; }
+    .error   { color: #D32F2F; }
+    .info    { color: #1976D2; }
+    .success { color: #388E3C; }
+}

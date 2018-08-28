@@ -1,0 +1,29 @@
+.announce-form {
+    margin: 0 50px 0 50px;
+}
+
+.types {
+    border-radius: 4px;
+    margin-bottom: 15px;
+    background-color: #ccc;
+    padding: 5px;
+}
+
+textarea {
+    resize: none;
+}
+
+::ng-deep .mat-radio-label-content {
+    margin-right: 10px;
+}
+
+::ng-deep .mat-tab-list .mat-tab-labels { display: none; }
+
+.content {
+    max-width: 960px;
+    margin: 0 auto;
+}
+
+.sub-component {
+    margin: 0 2px 10px 2px;
+}

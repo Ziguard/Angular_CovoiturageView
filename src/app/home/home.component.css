@@ -1,0 +1,17 @@
+swiper {
+    margin-top: 20px;
+    height: 400px;
+    width: 900px;
+}
+
+.swiper-wrapper {
+    box-sizing: border-box;
+}
+
+.swiper-wrapper {
+    height:auto !important;
+}
+
+.swiper-slide {
+    height:auto !important;
+}
